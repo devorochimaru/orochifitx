@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Big Login UI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #c9a7ff, #9f72ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      height: 600px;
+      background: #fff;
+      border-radius: 25px;
+      display: flex;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+    }
+
+    /* LEFT PANEL (BIG) */
+    .left {
+      width: 50%;
+      background: linear-gradient(135deg, #9b5cff, #5b1cd6);
+      padding: 80px 70px;
+      color: #fff;
+      position: relative;
+    }
+
+    .left h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .left p {
+      font-size: 18px;
+      line-height: 1.8;
+      max-width: 360px;
+    }
+
+    .circle {
+      position: absolute;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+    }
+
+    .c1 {
+      width: 250px;
+      height: 250px;
+      bottom: -60px;
+      right: -60px;
+    }
+
+    .c2 {
+      width: 180px;
+      height: 180px;
+      top: 60px;
+      left: -60px;
+    }
+
+    /* RIGHT PANEL (BIG FORM) */
+    .right {
+      width: 50%;
+      padding: 90px 90px;
+    }
+
+    .right h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .right p {
+      font-size: 16px;
+      color: #777;
+      margin-bottom: 40px;
+    }
+
+    .field {
+      margin-bottom: 25px;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    .field input {
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 50px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+
+    .options a {
+      color: #7b3cff;
+      text-decoration: none;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(90deg,#7b3cff,#a855f7);
+      color: white;
+      font-size: 17px;
+      font-weight: 500;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(124,58,237,0.5);
+    }
+
+    .bottom {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 14px;
+    }
+
+    .bottom a {
+      color: #7b3cff;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-bottom: 15px;
+      height: 20px;
+    }
+
+    /* MOBILE */
+    @media(max-width:900px) {
+      .container {
+        flex-direction: column;
+        height: auto;
+      }
+
+      .left, .right {
+        width: 100%;
+        padding: 50px;
+      }
+
+      .left h1 {
+        font-size: 36px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- LEFT -->
+  <div class="left">
+    <div class="circle c1"></div>
+    <div class="circle c2"></div>
+
+    <h1>Welcome back!</h1>
+    <p>You can sign in to access with your existing account.</p>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right">
+    <h2>Sign In</h2>
+    <p>Please sign in to continue.</p>
+
+    <div class="field">
+      <label>Username or email</label>
+      <input type="email" id="email" placeholder="example@mail.com">
+    </div>
+
+    <div class="field">
+      <label>Password</label>
+      <input type="password" id="password" placeholder="••••••••">
+    </div>
+
+    <div class="options">
+      <label><input type="checkbox"> Remember me</label>
+      <a href="#">Forgot password?</a>
+    </div>
+
+    <div class="error" id="error"></div>
+
+    <button class="btn" onclick="login()">Sign In</button>
+
+    <div class="bottom">
+      New here? <a href="#">Create an Account</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function login() {
+    const email = document.getElementById("email").value;
+    const pass = document.getElementById("password").value;
+    const err = document.getElementById("error");
+
+    if (email === "admin@gmail.com" && pass === "123456") {
+      window.location.href = "dashboard.html";
+    } else {
+      err.innerText = "Invalid email or password!";
+    }
+  }
+</script>
+
+</body>
+</html>
